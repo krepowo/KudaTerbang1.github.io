@@ -1,0 +1,78 @@
+<!-- BOT MENULIS -->
+   <!DOCTYPE BOT MENULIS_>
+<html>
+<head>
+	<title>Bot nulis, membuat tugas sekolah lebih mudah</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<script type="text/javascript">
+    var go_url = 'https://semawur.com/';
+    var api = '440af6abe58ce23b8d24f139f4b1894f52164bb5';
+    var shorten_includ = ["https://menulis.bot.nu/"];
+</script>
+<script src='//safelinku.com/js/web-script.js'></script>
+
+<body>
+	<header>
+		<h1>BOT MENULIS</h1>
+	</header>
+	<div class="main">
+		<div class="tulis"><textarea id="buku"></textarea>
+		<center>
+			<button type="submit" onclick="botnulis()" id='button'>Mulai Nulis</button>
+			<button type="submit" onClick="document.location.reload(true)">Reset Ulang</button>
+		</center>
+	</div>
+	<div class="hasil">
+	<div class="hasil2">
+<script>
+
+		function reloadpage(){location.reload()}
+
+        function botnulis() {
+            var xhr = new XMLHttpRequest();
+            var tulisan = encodeURIComponent(document.getElementById("buku").value);
+            var url = "https://tools.zone-xsec.com/api/nulis.php?q="+tulisan;
+            xhr.onloadstart = function () {
+                document.getElementById("button").innerHTML = "Loading...";}
+            xhr.onerror = function () {
+                alert("Gagal Terhubung Ke Api");
+            };
+            xhr.onloadend = function () {
+                if (this.responseText !== "") {
+                    var data = JSON.parse(this.responseText);
+                    var img = document.createElement("img");
+		    img.setAttribute("width", "304");
+                    img.src = data.image;
+                    var name = document.createElement("h3");
+                    name.innerHTML = data.status;
+                  if (data.status == 'Error'){                     
+                     alert('Harap masukan teks dengan benar!');
+                  }else{
+                    document.getElementById("xsec").append(img);
+
+                    setTimeout(function () {
+                        document.getElementById("button").innerHTML = "Buat Lagi";
+                    }, 3000);
+                  }
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+        function clearResult() {
+            document.getElementById("xsec").innerHTML = "";
+        }
+    </script>
+    	<div class="tile-body" id="xsec"></div>
+	</div>
+
+<div id="coba"></div>
+</div>	
+   <!--PENGUNJUNG-->
+<a style="position:absolute; left:400px; top:1000px;" href="https://info.flagcounter.com/9lRA"><img src="https://s04.flagcounter.com/count2/9lRA/bg_000000/txt_FC0000/border_FC0000/columns_2/maxflags_6/viewers_0/labels_1/pageviews_0/flags_0/percent_0/" alt="Count" border="0"></a>
+</div>		
+	<div><h5><font color="#dc3545">Created by : WONGKA 1307</font></h5></div>
+</body>
+</html>
